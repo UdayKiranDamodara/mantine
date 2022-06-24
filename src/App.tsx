@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button, Loader, MantineProvider, Paper, Text } from '@mantine/core'
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <MantineProvider
+        theme={{
+          loader: 'bars',
+          colorScheme: 'dark',
+        }}
+        styles={{
+          Button: (theme) => ({
+            root: {
+              backgroundColor: theme.colors.cyan[9],
+            },
+          }),
+        }}
+      >
+        <Paper>
+          <Text>Hello there from Mantine</Text>
+        </Paper>
+        <Button>Hello world!</Button>
+        <Loader />
+      </MantineProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
